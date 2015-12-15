@@ -1,0 +1,20 @@
+<html>
+<head>
+<title>Timer</title>
+<script type="text/javascript" language="javascript">
+	var counter=0;
+	function Action(){
+			counter++;
+			t=document.getElementById("time");
+			t.innerHTML=counter;
+			window.setTimeout("Action();",1000);
+	}
+	window.setTimeout("Action();",1000);
+</script>
+</head>
+
+<body>
+	<h1>Timeout Example</h1>
+	<p id="time"></p>
+</body>
+</html>

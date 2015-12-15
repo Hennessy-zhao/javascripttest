@@ -1,0 +1,12 @@
+img.slide{
+	position:absolute;
+	left:0;
+	top:0;
+}
+
+#slideshow{
+	position:relative;
+	overflow:hidden;
+	width:400;
+	height:300;
+}

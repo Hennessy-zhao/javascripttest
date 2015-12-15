@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>时间特效</title>
+	<meta http-equiv="Content-TYPE" content="text/html;charset=utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="public/js/jquery-2.1.4.min.js" ></script>
+	<link  rel="stylesheet" href="public/css/bootstrap.min.css"/>
+	<script src="public/js/bootstrap.js" ></script>
+	<style type="text/css">
+		h2.hh{
+			font-family: 黑体;
+		}
+
+		p.p1{
+			font-family: 黑体;
+			font-size: 14px;
+		}
+
+		
+	</style>
+</head>
+<body onload="showtime()">
+<!--************************************-->
+	<h2 class="hh">显示当前时间</h2>
+	<p class="p1">一般使用getHours(),getMinutes(),getSeconds()分别获得当前小时数，分钟数，秒数</p><br/>
+	<p class="p1">下面的text框将显示当前时间</p>
+	<form name="clock">
+			<input type="text" name="time" class="form-control" style="width:10%;">		
+	</form>
+	<br/><br/>
+<!--************************************-->
+	<h2 class="hh">显示当前日期</h2>
+	<p class="p1">首先定义一个星期数组initArray(),然后分别利用getYear(),getMonth(),getDate(),getDay()分别获得当前年份，月份，日数，星期</p><br/>
+	<p class="p1">下面一行将会显示当前的日期</p>
+	<p class="p1" id="date"></p>
+	<br/><br/>
+
+<!--************************************-->
+	<h2 class="hh">显示网页停留的时间</h2>
+	<p class="p1">显示网页停留时间也是一个比较常见的特效，通常先定义一个text文本框，然后定义一个function update()函数计算停留时间，并令其显示出来</p><br/>
+	<br/>
+	<p class="p1">下面的text框将会显示停留时间</p>
+	<form name="last">
+			<input type="text" name="lasttime" class="form-control" style="width:10%;">		
+	</form>
+	<br/><br/>
+
+<!--************************************-->
+	<h2 class="hh">制作倒计时特效</h2>
+	<p class="p1">倒计时特效可以让用户明确地知道某个日期剩余的时间</p><br/>
+	<br/>
+	<p class="p1">下面的text框将会显示剩余时间</p>
+	<form name="last2">
+			<input type="text" name="lastday" class="form-control" style="width:20%;">		
+	</form>
+	<br/><br/>
+
+
+
+	<script type="text/javascript">
+		function showtime()
+		{
+			var now_time=new Date();
+			var hours=now_time.getHours();
+			var minute=now_time.getMinutes();
+			var second=now_time.getSeconds();
+			var timer=((hours>12)?hours-12:hours);
+			timer+=((minute>10)?":":"0:")+minute;
+			timer+=":"+second;
+			timer+=" "+((hours>12)?"pm":"am");
+			document.clock.time.value=timer;
+			setTimeout("showtime()",1000);    		//设置每隔一秒钟调用一次showtime()函数
+		}
+
+
+		//******************************显示当前日期
+		today=new Date();
+		function initArray(){
+			this.length=initArray.arguments.length;
+			for (var i = 0; i < this.length; i++) {
+				this[i]=initArray.arguments[i]
+			}
+		}
+		var d=new initArray(
+			"星期日",
+			"星期一",
+			"星期二",
+			"星期三",
+			"星期四",
+			"星期五",
+			"星期六"
+
+			);
+		var year=today.getFullYear();
+		var month=today.getMonth()+1;					//因为月份是从0-11算得，所以这里年份要加1;
+		var day=today.getDate();
+		var date=d[today.getDay()];
+		var theday=year+"年 "+month+"月 "+day+"日 "+date;
+		document.getElementById("date").innerHTML=theday;
+		console.log(year);
+
+
+		//****************************************显示停留时间
+		var sec=0;
+		var min=0;
+		var hou=0;
+		flag=0;
+		idt=window.setTimeout("update();",1000);		//每隔一秒刷新一次
+		function update()
+		{
+			sec++;
+			if(sec==60)
+			{
+				sec=0;
+				min+=1;
+			}
+			if (min==60) 
+			{
+				min=0;
+				hou+=1;
+			}
+			if((min>0)&&(flag==0))
+			{
+				window.alert("可别急着走开，好看的还在后面");
+				flag=1;
+			}
+
+			document.last.lasttime.value=hou+"时"+min+"分"+sec+"秒";
+			idt=window.setTimeout("update();",1000);
+		}
+
+	//*****************************************显示剩余时间
+		var timedate=new Date("January 1,2016");
+		var times="元旦";
+		var now=new Date();
+		var date=timedate.getTime()-now.getTime();
+		var time=Math.floor(date/(1000*60*60*24));
+		if (time>=0) 
+		{
+			document.last2.lastday.value="现在离"+times+"还有"+time+"天";
+		}
+
+	</script>
+</body>
+</html>

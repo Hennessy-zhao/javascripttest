@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>图片特效</title>
+	<meta http-equiv="Content-TYPE" content="text/html;charset=utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="public/js/jquery-2.1.4.min.js" ></script>
+	<link  rel="stylesheet" href="public/css/bootstrap.min.css"/>
+	<script src="public/js/bootstrap.js" ></script>
+	<style type="text/css">
+		h2.hh{
+			font-family: 黑体;
+		}
+
+		p.p1{
+			font-family: 黑体;
+			font-size: 14px;
+		}
+
+		.zhendimage{
+			 
+			position: relative;
+		}
+	</style>
+</head>
+<body onload="blink()">
+<!--************************************-->
+	<h2 class="hh">当鼠标指针经过图像时，图像出现震动的效果</h2>
+	<p class="p1">图片如下</p><br/>
+	<img src="public/picture/008.jpg" class="zhendimage" onMouseover="init(this);rattleimage()" onMouseout="stoprattle(this)"style="cursor:pointer;">
+	
+	<br/><br/>
+
+<!--************************************-->
+	<h2 class="hh">图片闪烁效果</h2>
+	<p class="p1">图片如下（要在body标签处写上onload="控制图片闪烁的函数名"）</p><br/>
+	<div id="tp">
+		<img src="public/picture/003.jpg">	
+	</div>
+
+
+<!--************************************-->
+	<h2 class="hh">自动切换图像</h2>
+	<p class="p1">一般使用bootstrap制作</p><br/>
+	<script type="text/javascript">
+
+	//******************************************图片震动效果
+		var rector=3;
+		var stopit=0;
+		var a=1;
+
+
+
+		
+		function init(which)
+		{
+			stopit=0;
+			zhend=which;
+			zhend.style.left=0;
+			zhend.style.top=0;
+		}
+
+		function rattleimage()
+		{
+			if ((!document.all&&!document.getElementById)||stopit==1) 
+				return
+			if (a==1)
+			{
+				zhend.style.top=parseInt(zhend.style.top)+rector+"px";
+			}
+			else if (a==2)
+			{
+				zhend.style.left=parseInt(zhend.style.left)+rector+"px";
+			}
+			else if (a==3)
+			{
+				zhend.style.top=parseInt(zhend.style.top)-rector+"px";
+			}
+			else
+			{
+				zhend.style.left=parseInt(zhend.style.left)-rector+"px";
+			}
+			if (a<4) 
+				a++;
+			else
+				a=1;
+			setTimeout("rattleimage()",50)
+
+		}
+
+
+		function stoprattle(which)
+		{
+			stopit=1;
+			which.style.left=0;
+			which.style.top=0;
+		}
+
+
+	//**************************************图片闪烁效果
+		function blink()
+		{
+			tp.style.visibility=(tp.style.visibility=="hidden")?"visible":"hidden";
+			setTimeout("blink()",500);			//图片每隔0.5秒刷新一次					
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<html>
+<head>
+<title>Reset textarea</title>
+</head>
+
+<body>
+<h1>Reset textarea</h1>
+
+<form name="form1">
+<input type="textarea" id="txt" name="txt" value="Please input name" size="100" value="Please input name" onclick="SetNone();" onblur="CheckNone();">
+</form>
+
+<script type="text/javascript" language="javascript">
+	var txt=document.getElementById("txt");
+	function SetNone(){
+		if(txt.value=="Please input name")
+			txt.value="";
+	}
+
+	function CheckNone(){
+		if(document.form1.txt.value=="")
+			document.form1.txt.value="Please input name";
+	}
+</script>
+</body>
+</html>

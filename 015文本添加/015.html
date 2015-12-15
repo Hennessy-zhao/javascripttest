@@ -1,0 +1,22 @@
+<html>
+<head>
+<title>Adding to a page</title>
+<script type="text/javascript" language="javascript">
+	function AddText(){
+		document.getElementById("p1").appendChild(
+		document.createTextNode(document.form1.sentence.value));
+		document.form1.sentence.value="";
+	}
+</script>
+</head>
+
+<body>
+<h1>Create your own content</h1>
+<p id="p1">Using the W3C DOM, you can dynamiclly add sentences to this paragraph.<br/>
+Type a sentence and click the Add button.</p>
+<form name="form1">
+<input type="text" name="sentence" size="65">
+<input type="button" value="Add" onclick="AddText();">
+</form>
+</body>
+</html>

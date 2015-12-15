@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>动态节点</title>
+	<meta http-equiv="Content-TYPE" content="text/html;charset=utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="public/js/jquery-2.1.4.min.js" ></script>
+	<link  rel="stylesheet" href="public/css/bootstrap.min.css"/>
+	<script src="public/js/bootstrap.js" ></script>
+</head>
+<body>
+	<div class="row">
+		<div class="col-md-6">
+			<form action="#" method="post">
+				<h2>动态节点添加</h1>
+				<br/>
+			  	<div class="form-group">
+			    	<label for="name">请输入添加信息</label><br/>
+			    	<input type="text" class="form-control" id="write" placeholder="信息输入"><br/>
+			    	<input type="button" class="btn btn-success" value="添加信息" onclick="result()" ><br/><br/>
+			    	<label for="name">添加的信息将出现在下面的文本框中</label><br/><br/>
+			    	<textarea class="form-control" rows="8" id="read"></textarea>
+			  	</div>
+			</form>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		var arr=new Array();
+		var i=0;
+		function result()
+		{
+
+			message=document.getElementById("write").value;
+			arr[i]=message;
+			i++;
+			arr.sort();
+			document.getElementById("read").value=arr.join("\n");
+		}
+	</script>
+</body>
+</html>

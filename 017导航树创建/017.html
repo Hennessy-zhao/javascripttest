@@ -1,0 +1,42 @@
+<html>
+<head>
+<title>Creating a Naviagtion Tree</title>
+<style type="text/css">
+	a{text-decoration: none;}
+	#productsmenu,#supportmenu,#contactmenu{
+		display:none;
+		margin-left: 2em;
+	}
+</style>
+</head>
+
+<body>
+<h1>Navigation Tree Example</h1>
+<p>The navigation tree below allows you to expand and collapse items</p>
+<ul>
+	<li><a id="products" href="#">[+] Products</a>
+		<ul id="productsmenu">
+			<li><a href="prodlist.html">Product List</a></li>
+			<li><a href="order.html">Order Form</a></li>
+			<li><a href="pricelist.html">Price List</a></li>
+		</ul>
+	</li>
+
+	<li><a id="support" href="#">[+] Supoort</a>
+		<ul id="supportmenu">
+			<li><a href="sforum.html">Support Forum</a></li>
+			<li><a href="scontact.html">Contact Support</a></li>
+		</ul>
+	</li>
+
+	<li><a id="contact" href="#">[+] Contact Us</a>
+		<ul id="contactmenu">
+			<li><a href="contact1.html">Service Department</a></li>
+			<li><a href="contact2.html">Sales Department</a></li>
+		</ul>
+	</li>
+</ul>
+<script type="text/javascript" language="javascript" src="tree.js">
+</script>
+</body>
+</html>

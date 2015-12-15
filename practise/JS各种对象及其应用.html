@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>各种对象的应用</title>
+	<meta http-equiv="Content-TYPE" content="text/html;charset=utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="public/js/jquery-2.1.4.min.js" ></script>
+	<link  rel="stylesheet" href="public/css/bootstrap.min.css"/>
+	<script src="public/js/bootstrap.js" ></script>
+	<style type="text/css">
+		h2.hh{
+			font-family: 黑体;
+		}
+
+		p.p1{
+			font-family: 黑体;
+			font-size: 14px;
+		}
+
+		h4.hh2{
+			font-family: 黑体;
+		}
+	</style>
+</head>
+<body>
+<!--************************************-->
+	<h2 class="hh">浏览器对象navigator</h2>
+	<p class="p1">navigator对象可用来存取浏览器的相关信息</p><br/>
+	
+	<ul>
+		<b>navigator常见属性</b><br/>
+		<li>appName:浏览器的名称</li>
+		<li>appVersion:浏览器的版本</li>
+		<li>appCodeName:浏览器的代码名称</li>
+		<li>browserLanguage:浏览器所使用的语言</li>
+		<li>plugins:可以使用的插件信息</li>
+		<li>platform:浏览器系统所使用的平台，如win32等</li>
+		<li>cookieEnabled:浏览器的cookie功能是否打开</li>
+	</ul>
+	<br/>
+	<p class="p1">点击按钮查询浏览器的类型信息</p><br/>
+	<input type="button" class="btn btn-success" value="查询" onclick="click1()">
+	<br/><br/>
+
+<!--************************************-->
+	<h2 class="hh">document对象</h2>
+	<p class="p1">javascript的输出可通过document对象实现，在document中主要有links,anchor,form三个最主要的对象</p>
+	<ul>
+		<li>achor锚对象：是指<a name="..."></a>标记在HTML源码中存在时产生的对象，它包含着文档中所有achor信息</li>
+		<li>links链接对象：是指<a href="..."></a>标记链接一个超文本超媒体的元素作为一个特定的URL</li>
+		<li>form窗体对象：是文档对象的一个元素，它含有多种格式的对象存储信息，使用它可以在javascript脚本中编写程序，并可以用来动态改变文档的行为</li>
+
+	</ul>
+		<br/>
+		<p class="p1"><a href="1.html">链接1</a></p>
+		<p class="p2"><a href="2.html">链接2</a></p>
+		<p class="p3"><a href="3.html">链接3</a></p>
+		<input type="button" class="btn btn-success" value="查看" onclick="click2()">
+	<br/><br/>
+
+
+<!--************************************-->
+	<h2 class="hh">windows对象</h2>
+	<p class="p1">windows对象处于对象层次的最顶端，它提供了处理navigator窗口的办法和属性。javascript的输入可以通过windows对象来实现</p>
+	<b>windows常用方法</b>
+	<ul>
+		<li>open(url,windowName,parameterlist):创建一个新窗口,三个参数分别为设置url地址，窗口名称和窗口打开属性（一般包括宽度，高度，定位，工具栏等）</li>
+		<li>close():关闭一个窗口</li>
+		<li>alert():弹出式窗口</li>
+		<li>confirm():弹出确认域</li>
+		<li>......其他对象详见书312页</li>
+	</ul>
+	<br/><br/>
+
+<!--************************************-->
+	<h2 class="hh">location对象</h2>
+	<p class="p1">location是一个静态的对象，他描述的是某一个窗口对象所打开的地址</p>
+	<b>location对象常见属性如下</b>
+	<ul>
+		<li>protocol:返回地址的协议，取值为http:,https:,file:等等</li>
+		<li>hostname:返回地址的主机名，例如:"httm://www.baidu.com"地址的主机名就是www.baidu.com</li>
+		<li>port:返回地址的端口号</li>
+		<li>host:返回主机名和端口号</li>
+		<li>pathname:返回路径名，例如："httm://www.a.com/d/index.html"的路径为：d/index.html</li>
+		<li>hash:返回#以及其后的内容，例如：地址为"c.html#chapter4"，则返回chapter4,如果地址里面没有#,则返回空字符串</li>
+		<li>search:返回?以及其后的内容，如果没有?,则返回空字符串</li>
+		<li>href:返回整个地址，即返回浏览器地址栏中显示的内容</li>
+	</ul>
+	<b>location对象常用的方法如要有</b>
+	<ul>
+		<li>reload():相当于Internet Explorer浏览器上的“刷新”功能</li>
+		<li>replace():打开一个url，并取代历史对象中当前位置的地址，用这个方法打开一个url后，单机浏览器的后退按钮将不能返回到之前的页面</li>
+	</ul>
+	<br/><br/>
+
+<!--************************************-->
+	<h2 class="hh">hidtory对象</h2>
+	<p class="p1">history对象是浏览器的浏览历史，history对象的常用方法主要包括：</p>
+	<ul>
+		<li>back():后退，与单击“后退按钮是等效的”</li>
+		<li>forword():前进，与单击“前进”按钮是等效的</li>
+		<li>go():该方法用来进入指定的页面</li>
+	</ul>
+	<p>点击下列前进，后退按钮达到前进，后退的效果</p>
+	<input type="button" class="btn btn-success" value="后退" onclick="history.back()">
+	<input type="button" class="btn btn-success" value="前进" onclick="history.forward()">
+
+
+	<script type="text/javascript">
+		function click1()
+		{
+			alert("您现在使用的是"+navigator.appName+"浏览器");
+			alert("浏览器版本是"+navigator.appVersion);
+		}
+
+		function click2()
+		{
+			num=document.links.length;
+			s="该页面一共有"+num+"个链接\n";
+			for (var i = 0; i < num; i++) {
+				s=s+document.links[i].href+"\n";
+			}
+			alert(s);
+		} 
+
+
+	</script>
+</body>
+</html>

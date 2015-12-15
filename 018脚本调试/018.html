@@ -1,0 +1,38 @@
+<html>
+<head>
+	<title>Guess a Number</title>
+	<script type="text/javascript" language="javascript">
+		var num=Math.floor(Math.random()*100+1);
+		var tries=0;
+		function Guess(){
+			var g=document.form1.guess1.value;
+			tries++;
+			if(g<num)
+				document.getElementById("hint").innerHTML="No,small!";
+			else if(g>num)
+				document.getElementById("hint").innerHTML="No,big!";
+			else{
+				window.alert("Correct!You guessed it in "+tries+" tries");
+				location.reload();
+			}
+			if(tries==10){
+				window.alert("Sorry,time's up.The number was: "+num);
+				location.reload();
+			}
+		}
+	</script>
+</head>
+
+<body>
+	<h1>Guess a number</h1>
+	<hr/>
+	<p>I'm thinking of a number between 1 and 100.Try to guess it in less than 10 tries.</p>
+	<form name="form1">
+		<p id="hint">Enter your Guess:</p>
+		<br/>
+		<b>Guess:</b>
+		<input type="text" name="guess1" value="" size="5">
+		<input type="button" value="Guess" onclick="Guess();">
+	</form>
+</body>
+</html>

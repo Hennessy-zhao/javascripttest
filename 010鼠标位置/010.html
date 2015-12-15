@@ -1,0 +1,26 @@
+<!-- 可能出现兼容问题无法正确执行 -->
+<html>
+<head>
+<title>Display Mouse's position</title>
+<script type="text/javascript" language="javascript">
+	function MouseClick(){
+		e=window.event();
+		document.write(e.clientX);
+		document.form1.result.value="e";
+	}
+
+	function hello(){
+		document.form1.result.value+="e";
+	}
+
+	window.setTimeOut("hello();",1000);
+</script>
+</head>
+<body style="margin:0px;">
+<div style="height:500px;width:100%;background-color:#456;" onclick="" ="MouseClick();">
+</div>
+<form id="form1">
+	<p id="result"></p>
+</form>
+</body>
+</html>
